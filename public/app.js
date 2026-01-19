@@ -39,10 +39,16 @@ async function testEndpoint(endpointType) {
         });
 
         const data = await response.json();
+        
+        if (!data.statusCode) {
+            data.statusCode = response.status;
+        }
+        
         jsonElement.textContent = JSON.stringify(data, null, 2);
         jsonElement.className = response.ok ? 'response-json' : 'response-json error';
     } catch (error) {
         jsonElement.textContent = JSON.stringify({
+            statusCode: 500,
             error: {
                 code: 'NETWORK_ERROR',
                 message: error.message || 'Failed to fetch data from API',
