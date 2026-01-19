@@ -55,35 +55,52 @@ async function testEndpoint(endpointType) {
 
 async function copyEndpoint(path) {
     const fullUrl = `${API_BASE_URL}${path}`;
+    const button = event.target;
+    const originalText = button.textContent;
     
     try {
-        await navigator.clipboard.writeText(fullUrl);
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = '¡Copiado!';
-        button.style.background = 'var(--success)';
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = '';
-        }, 2000);
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(fullUrl);
+            button.textContent = '¡Copiado!';
+            button.style.background = 'var(--success)';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 2000);
+        } else {
+            throw new Error('Clipboard API not available');
+        }
     } catch (error) {
         const textArea = document.createElement('textarea');
         textArea.value = fullUrl;
         textArea.style.position = 'fixed';
-        textArea.style.opacity = '0';
+        textArea.style.left = '-9999px';
+        textArea.style.top = '0';
+        textArea.setAttribute('readonly', '');
         document.body.appendChild(textArea);
+        textArea.focus();
         textArea.select();
+        textArea.setSelectionRange(0, fullUrl.length);
         
         try {
-            document.execCommand('copy');
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = '¡Copiado!';
+            const successful = document.execCommand('copy');
+            if (successful) {
+                button.textContent = '¡Copiado!';
+                button.style.background = 'var(--success)';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            } else {
+                throw new Error('execCommand failed');
+            }
+        } catch (err) {
+            button.textContent = 'Error';
+            button.style.background = 'var(--error)';
             setTimeout(() => {
                 button.textContent = originalText;
+                button.style.background = '';
             }, 2000);
-        } catch (err) {
-            alert('Error al copiar URL. Por favor copia manualmente: ' + fullUrl);
         }
         
         document.body.removeChild(textArea);
