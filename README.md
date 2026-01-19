@@ -61,16 +61,7 @@ El servidor corre en `http://localhost:3000` por defecto. La documentación del 
 
 ### Tasas de Retención
 
-Edita `data/retention-rates.json` o usa el script de actualización:
-
-```bash
-npm run update-retention <rate> <effectiveDate> <source>
-```
-
-Ejemplo:
-```bash
-npm run update-retention 14.5 "2025-01-01" "SII - Ley 21.133"
-```
+Edita `data/retention-rates.json` directamente para actualizar las tasas de retención.
 
 ## Configuración
 

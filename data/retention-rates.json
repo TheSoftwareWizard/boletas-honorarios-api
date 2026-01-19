@@ -1,11 +1,18 @@
 {
   "current": {
-    "rate": 14.5,
-    "effectiveDate": "2025-01-01T00:00:00Z",
+    "rate": 15.25,
+    "effectiveDate": "2026-01-01T00:00:00Z",
     "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
-    "lastUpdated": "2025-01-01T00:00:00Z"
+    "lastUpdated": "2026-01-01T00:00:00Z"
   },
   "history": [
+    {
+      "year": 2026,
+      "rate": 15.25,
+      "effectiveDate": "2026-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2026-01-01T00:00:00Z"
+    },
     {
       "year": 2025,
       "rate": 14.5,

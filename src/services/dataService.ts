@@ -41,27 +41,3 @@ export function getCurrentRetention() {
 export function getRetentionHistory(): RetentionRate[] {
   return readRetentionRates().history;
 }
-
-export function updateCurrentRetention(rate: number, effectiveDate: string, source: string): void {
-  try {
-    const data = readRetentionRates();
-    const now = new Date().toISOString();
-    const currentYear = new Date(effectiveDate).getFullYear();
-    
-    data.current = { rate, effectiveDate, source, lastUpdated: now };
-
-    const existingIndex = data.history.findIndex(h => h.year === currentYear);
-    const entry = { year: currentYear, rate, effectiveDate, source, lastUpdated: now };
-
-    if (existingIndex >= 0) {
-      data.history[existingIndex] = entry;
-    } else {
-      data.history.push(entry);
-      data.history.sort((a, b) => b.year - a.year);
-    }
-
-    fs.writeFileSync(retentionRatesPath, JSON.stringify(data, null, 2), 'utf-8');
-  } catch (error) {
-    throw new Error(`Failed to update retention rate: ${error instanceof Error ? error.message : 'Unknown error'}`);
-  }
-}
