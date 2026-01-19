@@ -53,9 +53,11 @@ async function testEndpoint(endpointType) {
     }
 }
 
-async function copyEndpoint(path) {
+async function copyEndpoint(path, buttonElement) {
     const fullUrl = `${API_BASE_URL}${path}`;
-    const button = event.target;
+    const button = buttonElement || (window.event && window.event.target);
+    if (!button) return;
+    
     const originalText = button.textContent;
     
     try {
