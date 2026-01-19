@@ -248,6 +248,37 @@ section h2 {
     font-weight: 600;
 }
 
+.contributing {
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contributing h2 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.contributing p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.contributing-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contributing-links .btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
 footer {
     text-align: center;
     padding: 30px;
