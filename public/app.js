@@ -29,6 +29,7 @@ async function testEndpoint(endpointType) {
     }
 
     responseSection.style.display = 'block';
+    responseSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     jsonElement.textContent = 'Cargando...';
     jsonElement.className = 'response-json loading';
 
