@@ -34,6 +34,7 @@ async function build() {
     max: 100,
     timeWindow: '1 minute',
     errorResponseBuilder: () => ({
+      statusCode: 429,
       error: {
         code: 'RATE_LIMIT_EXCEEDED',
         message: 'Too many requests, please try again later',
@@ -46,6 +47,7 @@ async function build() {
 
   fastify.get('/health', async (_, reply) => {
     return reply.code(200).type('application/json').send({
+      statusCode: 200,
       status: 'ok',
       timestamp: new Date().toISOString()
     });
@@ -54,6 +56,7 @@ async function build() {
   fastify.setNotFoundHandler((request, reply) => {
     if (request.url.startsWith('/v1/') || request.url === '/health') {
       return reply.code(404).type('application/json').send({
+        statusCode: 404,
         error: {
           code: 'NOT_FOUND',
           message: 'Endpoint not found',
@@ -66,7 +69,9 @@ async function build() {
 
   fastify.setErrorHandler((error, _, reply) => {
     fastify.log.error(error);
-    reply.code(error.statusCode || 500).type('application/json').send({
+    const statusCode = error.statusCode || 500;
+    reply.code(statusCode).type('application/json').send({
+      statusCode,
       error: {
         code: error.code || 'INTERNAL_ERROR',
         message: error.message || 'Internal server error',

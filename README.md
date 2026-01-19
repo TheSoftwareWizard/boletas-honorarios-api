@@ -10,10 +10,11 @@ Tasa de retención actual y metadatos.
 
 ```json
 {
-  "rate": 14.5,
-  "effectiveDate": "2025-01-01T00:00:00Z",
+  "statusCode": 200,
+  "rate": 15.25,
+  "effectiveDate": "2026-01-01T00:00:00Z",
   "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
-  "lastUpdated": "2025-01-01T00:00:00Z",
+  "lastUpdated": "2026-01-01T00:00:00Z",
   "metadata": {
     "currency": "CLP",
     "description": "Chilean Peso withholding rate for professional service invoices (boletas de honorarios)"
@@ -27,23 +28,24 @@ Tasas históricas por año.
 
 ```json
 {
+  "statusCode": 200,
   "rates": [
+    {
+      "year": 2026,
+      "rate": 15.25,
+      "effectiveDate": "2026-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2026-01-01T00:00:00Z"
+    },
     {
       "year": 2025,
       "rate": 14.5,
       "effectiveDate": "2025-01-01T00:00:00Z",
       "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
       "lastUpdated": "2025-01-01T00:00:00Z"
-    },
-    {
-      "year": 2024,
-      "rate": 13.75,
-      "effectiveDate": "2024-01-01T00:00:00Z",
-      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
-      "lastUpdated": "2024-01-01T00:00:00Z"
     }
   ],
-  "total": 10
+  "total": 11
 }
 ```
 

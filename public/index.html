@@ -82,10 +82,11 @@
             <div class="example-card">
                 <h3>GET /v1/retention</h3>
                 <pre class="example-json">{
-  "rate": 14.5,
-  "effectiveDate": "2025-01-01T00:00:00Z",
+  "statusCode": 200,
+  "rate": 15.25,
+  "effectiveDate": "2026-01-01T00:00:00Z",
   "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
-  "lastUpdated": "2025-01-01T00:00:00Z",
+  "lastUpdated": "2026-01-01T00:00:00Z",
   "metadata": {
     "currency": "CLP",
     "description": "Chilean Peso withholding rate for professional service invoices (boletas de honorarios)"
@@ -96,7 +97,15 @@
             <div class="example-card">
                 <h3>GET /v1/retention/history</h3>
                 <pre class="example-json">{
+  "statusCode": 200,
   "rates": [
+    {
+      "year": 2026,
+      "rate": 15.25,
+      "effectiveDate": "2026-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2026-01-01T00:00:00Z"
+    },
     {
       "year": 2025,
       "rate": 14.5,
@@ -110,9 +119,74 @@
       "effectiveDate": "2024-01-01T00:00:00Z",
       "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
       "lastUpdated": "2024-01-01T00:00:00Z"
+    },
+    {
+      "year": 2023,
+      "rate": 13.0,
+      "effectiveDate": "2023-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2023-01-01T00:00:00Z"
+    },
+    {
+      "year": 2022,
+      "rate": 12.25,
+      "effectiveDate": "2022-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2022-01-01T00:00:00Z"
+    },
+    {
+      "year": 2021,
+      "rate": 11.5,
+      "effectiveDate": "2021-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2021-01-01T00:00:00Z"
+    },
+    {
+      "year": 2020,
+      "rate": 10.75,
+      "effectiveDate": "2020-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2020-01-01T00:00:00Z"
+    },
+    {
+      "year": 2019,
+      "rate": 10.0,
+      "effectiveDate": "2019-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2019-01-01T00:00:00Z"
+    },
+    {
+      "year": 2018,
+      "rate": 10.0,
+      "effectiveDate": "2018-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2018-01-01T00:00:00Z"
+    },
+    {
+      "year": 2017,
+      "rate": 10.0,
+      "effectiveDate": "2017-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2017-01-01T00:00:00Z"
+    },
+    {
+      "year": 2016,
+      "rate": 10.0,
+      "effectiveDate": "2016-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2016-01-01T00:00:00Z"
     }
   ],
-  "total": 10
+  "total": 11
+}</pre>
+            </div>
+
+            <div class="example-card">
+                <h3>GET /health</h3>
+                <pre class="example-json">{
+  "statusCode": 200,
+  "status": "ok",
+  "timestamp": "2026-01-19T20:44:19.876Z"
 }</pre>
             </div>
         </section>

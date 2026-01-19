@@ -7,6 +7,7 @@ export async function retentionRoutes(fastify: FastifyInstance) {
     try {
       const current = getCurrentRetention();
       const response: CurrentRetentionResponse = {
+        statusCode: 200,
         rate: current.rate,
         effectiveDate: current.effectiveDate,
         source: current.source,
@@ -17,6 +18,7 @@ export async function retentionRoutes(fastify: FastifyInstance) {
     } catch (error) {
       fastify.log.error(error);
       return reply.code(500).type('application/json').send({
+        statusCode: 500,
         error: {
           code: 'INTERNAL_ERROR',
           message: 'Failed to retrieve retention rate',
@@ -30,6 +32,7 @@ export async function retentionRoutes(fastify: FastifyInstance) {
     try {
       const history = getRetentionHistory();
       const response: RetentionHistoryResponse = {
+        statusCode: 200,
         rates: history,
         total: history.length
       };
@@ -37,6 +40,7 @@ export async function retentionRoutes(fastify: FastifyInstance) {
     } catch (error) {
       fastify.log.error(error);
       return reply.code(500).type('application/json').send({
+        statusCode: 500,
         error: {
           code: 'INTERNAL_ERROR',
           message: 'Failed to retrieve retention history',

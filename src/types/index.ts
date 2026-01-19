@@ -7,6 +7,7 @@ export interface RetentionRate {
 }
 
 export interface CurrentRetentionResponse {
+  statusCode: number;
   rate: number;
   effectiveDate: string;
   source: string;
@@ -18,6 +19,7 @@ export interface CurrentRetentionResponse {
 }
 
 export interface RetentionHistoryResponse {
+  statusCode: number;
   rates: RetentionRate[];
   total: number;
 }
