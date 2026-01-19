@@ -1,0 +1,80 @@
+{
+  "current": {
+    "rate": 14.5,
+    "effectiveDate": "2025-01-01T00:00:00Z",
+    "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+    "lastUpdated": "2025-01-01T00:00:00Z"
+  },
+  "history": [
+    {
+      "year": 2025,
+      "rate": 14.5,
+      "effectiveDate": "2025-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2025-01-01T00:00:00Z"
+    },
+    {
+      "year": 2024,
+      "rate": 13.75,
+      "effectiveDate": "2024-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2024-01-01T00:00:00Z"
+    },
+    {
+      "year": 2023,
+      "rate": 13.0,
+      "effectiveDate": "2023-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2023-01-01T00:00:00Z"
+    },
+    {
+      "year": 2022,
+      "rate": 12.25,
+      "effectiveDate": "2022-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2022-01-01T00:00:00Z"
+    },
+    {
+      "year": 2021,
+      "rate": 11.5,
+      "effectiveDate": "2021-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2021-01-01T00:00:00Z"
+    },
+    {
+      "year": 2020,
+      "rate": 10.75,
+      "effectiveDate": "2020-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2020-01-01T00:00:00Z"
+    },
+    {
+      "year": 2019,
+      "rate": 10.0,
+      "effectiveDate": "2019-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2019-01-01T00:00:00Z"
+    },
+    {
+      "year": 2018,
+      "rate": 10.0,
+      "effectiveDate": "2018-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2018-01-01T00:00:00Z"
+    },
+    {
+      "year": 2017,
+      "rate": 10.0,
+      "effectiveDate": "2017-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2017-01-01T00:00:00Z"
+    },
+    {
+      "year": 2016,
+      "rate": 10.0,
+      "effectiveDate": "2016-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos)",
+      "lastUpdated": "2016-01-01T00:00:00Z"
+    }
+  ]
+}

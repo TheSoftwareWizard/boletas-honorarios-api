@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Boletas de Honorarios - Documentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>API de Boletas de Honorarios</h1>
+            <p class="subtitle">API REST para datos de retención de boletas de honorarios profesionales chilenos</p>
+        </header>
+
+        <section class="intro">
+            <h2>Descripción General</h2>
+            <p>Esta API proporciona datos de retención para boletas de honorarios profesionales chilenos, incluyendo tasas actuales e históricas por año.</p>
+        </section>
+
+        <section class="endpoints">
+            <h2>Endpoints de la API</h2>
+
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <code class="endpoint-path">/v1/retention</code>
+                </div>
+                <p class="endpoint-description">Retorna la tasa de retención actual y metadatos relacionados.</p>
+                
+                <div class="endpoint-actions">
+                    <button class="btn btn-primary" onclick="testEndpoint('retention')">Probar Endpoint</button>
+                    <button class="btn btn-secondary" onclick="copyEndpoint('/v1/retention')">Copiar URL</button>
+                </div>
+                
+                <div class="response-section" id="response-retention" style="display: none;">
+                    <h3>Respuesta:</h3>
+                    <pre class="response-json" id="json-retention"></pre>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <code class="endpoint-path">/v1/retention/history</code>
+                </div>
+                <p class="endpoint-description">Retorna las tasas de retención históricas por año.</p>
+                
+                <div class="endpoint-actions">
+                    <button class="btn btn-primary" onclick="testEndpoint('history')">Probar Endpoint</button>
+                    <button class="btn btn-secondary" onclick="copyEndpoint('/v1/retention/history')">Copiar URL</button>
+                </div>
+                
+                <div class="response-section" id="response-history" style="display: none;">
+                    <h3>Respuesta:</h3>
+                    <pre class="response-json" id="json-history"></pre>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <code class="endpoint-path">/health</code>
+                </div>
+                <p class="endpoint-description">Endpoint de verificación de estado para comprobar el estado de la API.</p>
+                
+                <div class="endpoint-actions">
+                    <button class="btn btn-primary" onclick="testEndpoint('health')">Probar Endpoint</button>
+                    <button class="btn btn-secondary" onclick="copyEndpoint('/health')">Copiar URL</button>
+                </div>
+                
+                <div class="response-section" id="response-health" style="display: none;">
+                    <h3>Respuesta:</h3>
+                    <pre class="response-json" id="json-health"></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="examples">
+            <h2>Ejemplos de Respuestas</h2>
+            
+            <div class="example-card">
+                <h3>GET /v1/retention</h3>
+                <pre class="example-json">{
+  "rate": 14.5,
+  "effectiveDate": "2025-01-01T00:00:00Z",
+  "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+  "lastUpdated": "2025-01-01T00:00:00Z",
+  "metadata": {
+    "currency": "CLP",
+    "description": "Chilean Peso withholding rate for professional service invoices (boletas de honorarios)"
+  }
+}</pre>
+            </div>
+
+            <div class="example-card">
+                <h3>GET /v1/retention/history</h3>
+                <pre class="example-json">{
+  "rates": [
+    {
+      "year": 2025,
+      "rate": 14.5,
+      "effectiveDate": "2025-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2025-01-01T00:00:00Z"
+    },
+    {
+      "year": 2024,
+      "rate": 13.75,
+      "effectiveDate": "2024-01-01T00:00:00Z",
+      "source": "SII (Servicio de Impuestos Internos) - Ley 21.133",
+      "lastUpdated": "2024-01-01T00:00:00Z"
+    }
+  ],
+  "total": 10
+}</pre>
+            </div>
+        </section>
+
+        <section class="info">
+            <h2>Información Adicional</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Límite de Velocidad</h3>
+                    <p>Máximo 100 solicitudes por minuto por dirección IP</p>
+                </div>
+                <div class="info-item">
+                    <h3>CORS</h3>
+                    <p>Intercambio de Recursos de Origen Cruzado habilitado para uso público</p>
+                </div>
+                <div class="info-item">
+                    <h3>Tipo de Contenido</h3>
+                    <p>Todas las respuestas se devuelven como <code>application/json</code></p>
+                </div>
+                <div class="info-item">
+                    <h3>URL Base</h3>
+                    <p id="base-url">http://localhost:3000</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>API de Boletas de Honorarios &copy; 2026</p>
+            <p>Desarrollado por <a href="https://jeanroa.dev" target="_blank" rel="noopener noreferrer">Jean Roa Web</a> - <a href="https://jeanroa.dev" target="_blank" rel="noopener noreferrer">jeanroa.dev</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
